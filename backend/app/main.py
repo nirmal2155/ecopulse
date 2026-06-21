@@ -7,15 +7,22 @@ frontend (running on a phone/emulator) can reach the API.
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 
 from app.routers import activities, challenges, users
 from app.services.database import init_db
 
 app = FastAPI(
     title="EcoPulse API",
-    description="🌱 Nudge Engine — Carbon footprint tracker with AI-powered Eco-Challenges",
+    description="EcoPulse Nudge Engine - Carbon footprint tracker with AI-powered Eco-Challenges",
     version="1.0.0",
 )
+
+# ---------------------------------------------------------------------------
+# Middleware: Compression and Security
+# ---------------------------------------------------------------------------
+app.add_middleware(GZipMiddleware, minimum_size=1000)
+
 
 # ---------------------------------------------------------------------------
 # CORS - allow specific origins for better security

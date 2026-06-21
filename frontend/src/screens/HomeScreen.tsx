@@ -16,7 +16,7 @@ import Svg, { Circle, Line, Text as SvgText } from 'react-native-svg';
 import { useUser } from '../context/UserContext';
 import { getUserChallenges, getHistory, Challenge } from '../services/api';
 
-export default function HomeScreen() {
+export default React.memo(function HomeScreen() {
   const nav = useNavigation<any>();
   const { userId, profile, refreshProfile, updateCoins } = useUser();
   const { width } = useWindowDimensions();
@@ -416,7 +416,7 @@ export default function HomeScreen() {
       </ScrollView>
     </SafeAreaView>
   );
-}
+});
 
 // Re-using local image import mapping if React Native, but since we are web, standard Image from react-native is exported.
 // Let's import Image correctly from 'react-native' on top.
