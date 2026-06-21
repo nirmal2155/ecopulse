@@ -110,6 +110,15 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.headerRight}>
+          <TouchableOpacity 
+            style={styles.trackBtn} 
+            activeOpacity={0.8} 
+            onPress={() => nav.navigate('Log')}
+          >
+            <Ionicons name="add" size={16} color="#FFFFFF" />
+            <Text style={styles.trackBtnText}>Track Footprint</Text>
+          </TouchableOpacity>
+
           <TouchableOpacity style={styles.headerIconButton} activeOpacity={0.7}>
             <Ionicons name="notifications-outline" size={20} color="#0F172A" />
             <View style={styles.bellDot} />
@@ -442,6 +451,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
+  },
+  trackBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#00BFA5',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    gap: 4,
+  },
+  trackBtnText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '800',
   },
   headerIconButton: {
     width: 36,
