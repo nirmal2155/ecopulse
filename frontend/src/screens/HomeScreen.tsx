@@ -289,6 +289,16 @@ export default function HomeScreen() {
           )}
         </View>
 
+        {/* Giant Track Footprint Button (User Request) */}
+        <TouchableOpacity 
+          style={styles.giantTrackBtn}
+          activeOpacity={0.8}
+          onPress={() => nav.navigate('Log')}
+        >
+          <Ionicons name="add-circle" size={24} color="#FFFFFF" />
+          <Text style={styles.giantTrackBtnText}>Track Your Footprint</Text>
+        </TouchableOpacity>
+
         {/* Bottom Panel: Priority Objectives */}
         <View style={styles.objectivesSection}>
           <View style={styles.sectionHeaderRow}>
@@ -743,6 +753,21 @@ const styles = StyleSheet.create({
     color: '#2C5E43',
     fontWeight: '800',
     fontSize: 13,
+  },
+  giantTrackBtn: {
+    backgroundColor: '#00BFA5',
+    borderRadius: 16,
+    paddingVertical: 18,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    gap: 8,
+  },
+  giantTrackBtnText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '800',
   },
   objectivesSection: {
     marginTop: 24,
