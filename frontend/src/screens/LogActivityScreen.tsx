@@ -125,8 +125,13 @@ export default function LogActivityScreen() {
   };
 
   const handleSliderPress = (event: any) => {
-    const { locationX } = event.nativeEvent;
-    const pct = Math.max(0, Math.min(1, locationX / trackWidth));
+    let x = event.nativeEvent.locationX;
+    if (x === undefined && Platform.OS === 'web') {
+      x = event.nativeEvent.offsetX;
+    }
+    if (x === undefined) return;
+    
+    const pct = Math.max(0, Math.min(1, x / trackWidth));
     // scale from 0 to 100
     const km = Math.round(pct * 100);
     setTransportKm(km.toString());
@@ -280,7 +285,10 @@ export default function LogActivityScreen() {
             <View style={styles.card}>
               <View style={styles.cardHeaderRow}>
                 <Text style={styles.cardTitle}>Nutrition & Diet</Text>
-                <TouchableOpacity activeOpacity={0.7} onPress={() => Alert.alert('Nutrition Log', 'Logging diet habits reduces your carbon footprint.')}>
+                <TouchableOpacity activeOpacity={0.7} onPress={() => {
+                  if (Platform.OS === 'web') alert('Nutrition Log\n\nLogging diet habits reduces your carbon footprint.');
+                  else Alert.alert('Nutrition Log', 'Logging diet habits reduces your carbon footprint.');
+                }}>
                   <Text style={styles.seeDetailedLink}>See detailed log</Text>
                 </TouchableOpacity>
               </View>
@@ -361,7 +369,8 @@ export default function LogActivityScreen() {
                   <TouchableOpacity
                     style={[styles.quickAddBtn, { backgroundColor: '#FAF4EB' }]}
                     onPress={() => {
-                      Alert.alert('🌱 Composting Logged!', '+5 Eco-Coins added to your balance.');
+                      if (Platform.OS === 'web') alert('🌱 Composting Logged!\n\n+5 Eco-Coins added to your balance.');
+                      else Alert.alert('🌱 Composting Logged!', '+5 Eco-Coins added to your balance.');
                       updateCoins(15, 'Sprout');
                     }}
                     activeOpacity={0.7}
@@ -431,7 +440,10 @@ export default function LogActivityScreen() {
               
               <TouchableOpacity
                 style={styles.acceptChallengeBtn}
-                onPress={() => Alert.alert('Challenge Accepted! 🚲', 'Complete a bike trip today to complete the Green Mile streak.')}
+                onPress={() => {
+                  if (Platform.OS === 'web') alert('Challenge Accepted! 🚲\n\nComplete a bike trip today to complete the Green Mile streak.');
+                  else Alert.alert('Challenge Accepted! 🚲', 'Complete a bike trip today to complete the Green Mile streak.');
+                }}
                 activeOpacity={0.8}
               >
                 <Text style={styles.acceptBtnText}>Accept Challenge</Text>
