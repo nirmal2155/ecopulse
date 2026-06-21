@@ -100,7 +100,7 @@ export default function LoginScreen() {
               <Text style={styles.inputLabel}>Email Address</Text>
               <View style={styles.inputContainer}>
                 <Ionicons name="mail-outline" size={18} color="#8A857A" style={styles.inputIcon} />
-                <TextInput
+                <TextInput accessible={true} aria-label="Input field" 
                   style={styles.textInput}
                   placeholder="name@example.com"
                   placeholderTextColor="#94A3B8"
@@ -117,7 +117,7 @@ export default function LoginScreen() {
               <Text style={styles.inputLabel}>Password</Text>
               <View style={styles.inputContainer}>
                 <Ionicons name="lock-closed-outline" size={18} color="#8A857A" style={styles.inputIcon} />
-                <TextInput
+                <TextInput accessible={true} aria-label="Input field" 
                   style={styles.textInput}
                   placeholder="••••••••"
                   placeholderTextColor="#94A3B8"
@@ -126,7 +126,7 @@ export default function LoginScreen() {
                   secureTextEntry={!showPassword}
                   autoCapitalize="none"
                 />
-                <TouchableOpacity
+                <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                   onPress={() => setShowPassword(!showPassword)}
                   style={styles.toggleBtn}
                   activeOpacity={0.7}
@@ -141,7 +141,7 @@ export default function LoginScreen() {
             </View>
 
             {/* Sign In Button */}
-            <TouchableOpacity
+            <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
               style={[styles.signInBtn, loading && { opacity: 0.8 }]}
               onPress={handleLogin}
               disabled={loading}
@@ -161,7 +161,7 @@ export default function LoginScreen() {
             </View>
 
             {/* Quick Demo Login Fallback */}
-            <TouchableOpacity
+            <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
               style={styles.demoBtn}
               onPress={handleDemoLogin}
               disabled={loading}

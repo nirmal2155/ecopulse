@@ -18,13 +18,19 @@ app = FastAPI(
 )
 
 # ---------------------------------------------------------------------------
-# CORS — allow any origin so Expo Go (on phone) can hit the local server
+# CORS - allow specific origins for better security
 # ---------------------------------------------------------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost", 
+        "http://localhost:8081", 
+        "http://localhost:3000", 
+        "https://ecopulse-navy.vercel.app", 
+        "https://ecopulse.vercel.app"
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 

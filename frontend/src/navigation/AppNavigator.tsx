@@ -45,7 +45,7 @@ function CustomTabBar({ state, descriptors, navigation, isDesktop }: any) {
           const [active, inactive] = icons[route.name] ?? ['circle', 'circle-outline'];
 
           return (
-            <TouchableOpacity key={route.key} onPress={onPress} style={styles.bottomTabButton} activeOpacity={0.7}>
+            <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Navigation Button"  key={route.key} onPress={onPress} style={styles.bottomTabButton} activeOpacity={0.7}>
               <Ionicons
                 name={(isFocused ? active : inactive) as any}
                 size={22}
@@ -98,7 +98,7 @@ function CustomTabBar({ state, descriptors, navigation, isDesktop }: any) {
           const label = labelMap[route.name] || route.name;
 
           return (
-            <TouchableOpacity
+            <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Navigation Button" 
               key={route.key}
               onPress={onPress}
               style={[styles.sidebarMenuItem, isFocused && styles.sidebarMenuItemActive]}
@@ -120,7 +120,7 @@ function CustomTabBar({ state, descriptors, navigation, isDesktop }: any) {
 
       {/* Footer CTA Button */}
       <View style={styles.sidebarFooter}>
-        <TouchableOpacity
+        <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Navigation Button" 
           style={styles.newActionButton}
           onPress={() => navigation.navigate('Log')}
           activeOpacity={0.8}
@@ -129,7 +129,7 @@ function CustomTabBar({ state, descriptors, navigation, isDesktop }: any) {
           <Text style={styles.newActionText}>New Action</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
+        <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Navigation Button" 
           style={styles.logoutButton}
           onPress={() => logout()}
           activeOpacity={0.8}
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   brandSubtitle: {
-    color: '#64748B',
+    color: '#94A3B8',
     fontSize: 11,
     fontWeight: '600',
     marginTop: 2,

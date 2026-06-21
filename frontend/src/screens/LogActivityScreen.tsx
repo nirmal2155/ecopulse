@@ -168,7 +168,7 @@ export default function LogActivityScreen() {
         <View style={styles.headerRight}>
           <View style={styles.searchBar}>
             <Ionicons name="search-outline" size={16} color="#64748B" style={{ marginRight: 8 }} />
-            <TextInput
+            <TextInput accessible={true} aria-label="Input field" 
               style={styles.searchInput}
               placeholder="Search activities..."
               placeholderTextColor="#64748B"
@@ -176,12 +176,12 @@ export default function LogActivityScreen() {
             />
           </View>
           
-          <TouchableOpacity style={styles.headerIconButton} activeOpacity={0.7}>
+          <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  style={styles.headerIconButton} activeOpacity={0.7}>
             <Ionicons name="notifications-outline" size={20} color="#0F172A" />
             <View style={styles.bellDot} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.avatarButton} activeOpacity={0.8}>
+          <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  style={styles.avatarButton} activeOpacity={0.8}>
             <Image
               source={{ uri: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80' }}
               style={styles.avatarImg}
@@ -204,10 +204,10 @@ export default function LogActivityScreen() {
                   <Text style={styles.cardSubtitle}>Track your mobility footprint in seconds</Text>
                 </View>
                 <View style={styles.cardHeaderActions}>
-                  <TouchableOpacity style={styles.historyBtn} onPress={loadHistory} activeOpacity={0.7}>
+                  <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  style={styles.historyBtn} onPress={loadHistory} activeOpacity={0.7}>
                     <Text style={styles.historyBtnText}>History</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity
+                  <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                     style={[styles.logBatchBtn, loading && { opacity: 0.7 }]}
                     onPress={handleSubmit}
                     disabled={loading}
@@ -227,7 +227,7 @@ export default function LogActivityScreen() {
                 {TRANSPORT_MODES.map((m) => {
                   const isActive = transportMode === m.key;
                   return (
-                    <TouchableOpacity
+                    <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                       key={m.key}
                       style={[styles.modeBtn, isActive && styles.modeBtnActive]}
                       onPress={() => handleSelectTransport(m.key)}
@@ -285,7 +285,7 @@ export default function LogActivityScreen() {
             <View style={styles.card}>
               <View style={styles.cardHeaderRow}>
                 <Text style={styles.cardTitle}>Nutrition & Diet</Text>
-                <TouchableOpacity activeOpacity={0.7} onPress={() => {
+                <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  activeOpacity={0.7} onPress={() => {
                   if (Platform.OS === 'web') alert('Nutrition Log\n\nLogging diet habits reduces your carbon footprint.');
                   else Alert.alert('Nutrition Log', 'Logging diet habits reduces your carbon footprint.');
                 }}>
@@ -306,7 +306,7 @@ export default function LogActivityScreen() {
                       <Text style={styles.dietSubtitle}>2.4kg CO2e saved today</Text>
                     </View>
                   </View>
-                  <TouchableOpacity
+                  <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                     style={[styles.quickAddBtn, { backgroundColor: '#E2EFE7' }]}
                     onPress={() => handleQuickAdd('food', 'vegan', 1, 'Plant-Based meal')}
                     activeOpacity={0.7}
@@ -326,7 +326,7 @@ export default function LogActivityScreen() {
                       <Text style={styles.dietSubtitle}>Fair trade & organic</Text>
                     </View>
                   </View>
-                  <TouchableOpacity
+                  <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                     style={[styles.quickAddBtn, { backgroundColor: '#F2ECE0' }]}
                     onPress={() => handleQuickAdd('food', 'vegan', 1, 'Low Carbon Coffee')}
                     activeOpacity={0.7}
@@ -346,7 +346,7 @@ export default function LogActivityScreen() {
                       <Text style={styles.dietSubtitle}>Higher footprint impact</Text>
                     </View>
                   </View>
-                  <TouchableOpacity
+                  <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                     style={[styles.quickAddBtn, { backgroundColor: '#FAF0ED' }]}
                     onPress={() => handleQuickAdd('food', 'beef', 1, 'Animal Protein')}
                     activeOpacity={0.7}
@@ -366,7 +366,7 @@ export default function LogActivityScreen() {
                       <Text style={styles.dietSubtitle}>Zero waste goal</Text>
                     </View>
                   </View>
-                  <TouchableOpacity
+                  <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                     style={[styles.quickAddBtn, { backgroundColor: '#FAF4EB' }]}
                     onPress={() => {
                       if (Platform.OS === 'web') alert('🌱 Composting Logged!\n\n+5 Eco-Coins added to your balance.');
@@ -438,7 +438,7 @@ export default function LogActivityScreen() {
                 You've cycled 20% more than average this week. Switching today's bus trip to a bike ride will complete your "Green Mile" streak.
               </Text>
               
-              <TouchableOpacity
+              <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                 style={styles.acceptChallengeBtn}
                 onPress={() => {
                   if (Platform.OS === 'web') alert('Challenge Accepted! 🚲\n\nComplete a bike trip today to complete the Green Mile streak.');

@@ -84,7 +84,7 @@ export default function ProfileScreen() {
         {/* Screen Header Bar with Logout */}
         <View style={styles.screenHeader}>
           <Text style={styles.screenHeaderTitle}>Leaderboard & Profile</Text>
-          <TouchableOpacity onPress={() => logout()} style={styles.logoutHeaderBtn} activeOpacity={0.7}>
+          <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  onPress={() => logout()} style={styles.logoutHeaderBtn} activeOpacity={0.7}>
             <Ionicons name="log-out-outline" size={18} color="#0F172A" style={{ marginRight: 4 }} />
             <Text style={styles.logoutHeaderBtnText}>Sign Out</Text>
           </TouchableOpacity>
@@ -269,7 +269,7 @@ export default function ProfileScreen() {
               const isSelf = user.isCurrentUser;
 
               return (
-                <TouchableOpacity
+                <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                   key={user.name}
                   style={[
                     styles.leaderboardRow,
@@ -328,7 +328,7 @@ export default function ProfileScreen() {
                   </Text>
 
                   <View style={styles.modalActionRow}>
-                    <TouchableOpacity
+                    <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                       style={[styles.modalActionBtn, { backgroundColor: '#E2EFE7', borderColor: '#2C5E43', borderWidth: 1 }]}
                       onPress={() => {
                         if (profile) {
@@ -349,7 +349,7 @@ export default function ProfileScreen() {
                       <Text style={[styles.modalActionBtnText, { color: '#2C5E43' }]}>Cheer (+5🪙)</Text>
                     </TouchableOpacity>
  
-                    <TouchableOpacity
+                    <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                       style={[styles.modalActionBtn, { backgroundColor: '#FAF0ED', borderColor: '#B54D3D', borderWidth: 1 }]}
                       onPress={() => {
                         setModalVisible(false);
@@ -368,7 +368,7 @@ export default function ProfileScreen() {
                     </TouchableOpacity>
                   </View>
 
-                  <TouchableOpacity style={styles.modalCloseBtn} onPress={() => setModalVisible(false)} activeOpacity={0.7}>
+                  <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  style={styles.modalCloseBtn} onPress={() => setModalVisible(false)} activeOpacity={0.7}>
                     <Text style={styles.modalCloseText}>Cancel</Text>
                   </TouchableOpacity>
                 </>

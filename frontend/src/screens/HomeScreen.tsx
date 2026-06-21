@@ -110,7 +110,7 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.headerRight}>
-          <TouchableOpacity 
+          <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  
             style={styles.trackBtn} 
             activeOpacity={0.8} 
             onPress={() => nav.navigate('Log')}
@@ -119,12 +119,12 @@ export default function HomeScreen() {
             <Text style={styles.trackBtnText}>Track Footprint</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.headerIconButton} activeOpacity={0.7}>
+          <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  style={styles.headerIconButton} activeOpacity={0.7}>
             <Ionicons name="notifications-outline" size={20} color="#0F172A" />
             <View style={styles.bellDot} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.avatarButton} activeOpacity={0.8} onPress={() => nav.navigate('Profile')}>
+          <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  style={styles.avatarButton} activeOpacity={0.8} onPress={() => nav.navigate('Profile')}>
             <Image
               source={{ uri: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80' }}
               style={styles.avatarImg}
@@ -279,7 +279,7 @@ export default function HomeScreen() {
             </View>
           </View>
           {!optimizationApplied ? (
-            <TouchableOpacity style={styles.applyBtn} onPress={handleApplyOptimization} activeOpacity={0.8}>
+            <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  style={styles.applyBtn} onPress={handleApplyOptimization} activeOpacity={0.8}>
               <Text style={styles.applyBtnText}>Apply Optimization</Text>
             </TouchableOpacity>
           ) : (
@@ -290,7 +290,7 @@ export default function HomeScreen() {
         </View>
 
         {/* Giant Track Footprint Button (User Request) */}
-        <TouchableOpacity 
+        <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  
           style={styles.giantTrackBtn}
           activeOpacity={0.8}
           onPress={() => nav.navigate('Log')}
@@ -303,7 +303,7 @@ export default function HomeScreen() {
         <View style={styles.objectivesSection}>
           <View style={styles.sectionHeaderRow}>
             <Text style={styles.sectionTitle}>Priority Objectives</Text>
-            <TouchableOpacity onPress={() => nav.navigate('Challenges')} activeOpacity={0.7}>
+            <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button"  onPress={() => nav.navigate('Challenges')} activeOpacity={0.7}>
               <Text style={styles.viewAllLink}>View All Systems →</Text>
             </TouchableOpacity>
           </View>
@@ -325,7 +325,7 @@ export default function HomeScreen() {
                 <View style={[styles.objBadge, { backgroundColor: '#E2EFE7' }]}>
                   <Text style={[styles.objBadgeText, { color: '#2C5E43' }]}>Impact: High</Text>
                 </View>
-                <TouchableOpacity
+                <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                   style={styles.executeBtn}
                   onPress={() => handleExecuteTask('Transmit footprint telemetry to community node', 20)}
                   activeOpacity={0.7}
@@ -350,7 +350,7 @@ export default function HomeScreen() {
                 <View style={[styles.objBadge, { backgroundColor: '#EBF3FE' }]}>
                   <Text style={[styles.objBadgeText, { color: '#2B6CB0' }]}>Impact: Med</Text>
                 </View>
-                <TouchableOpacity
+                <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                   style={styles.executeBtn}
                   onPress={() => handleExecuteTask('Initiate pedal-powered logistics for commute', 15)}
                   activeOpacity={0.7}
@@ -375,7 +375,7 @@ export default function HomeScreen() {
                 <View style={[styles.objBadge, { backgroundColor: '#EBF3FE' }]}>
                   <Text style={[styles.objBadgeText, { color: '#2B6CB0' }]}>Impact: Med</Text>
                 </View>
-                <TouchableOpacity
+                <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                   style={styles.executeBtn}
                   onPress={() => handleExecuteTask('Audit appliance standby power draw', 15)}
                   activeOpacity={0.7}
@@ -400,7 +400,7 @@ export default function HomeScreen() {
                 <View style={[styles.objBadge, { backgroundColor: '#E2EFE7' }]}>
                   <Text style={[styles.objBadgeText, { color: '#2C5E43' }]}>Impact: High</Text>
                 </View>
-                <TouchableOpacity
+                <TouchableOpacity accessible={true} accessibilityRole="button" aria-label="Button" 
                   style={styles.executeBtn}
                   onPress={() => handleExecuteTask('Optimize meal ingredients for local supply', 25)}
                   activeOpacity={0.7}
